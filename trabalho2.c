@@ -5,16 +5,12 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-
-void *client(void *param);
-void *barber(void *param);
-
 int finalizou = 0;
 int num_chairs = 10;
 
-pthread_mutex_t chairs_mutex = PTHREAD_MUTEX_INITIALIZER;/*sem_t chairs_mutex;*/ /*SEMAFORO*/
-pthread_cond_t client_ = PTHREAD_COND_INITIALIZER;/*sem_t sem_client;*/ /*SEMAFORO*/
-pthread_cond_t barber_ = PTHREAD_COND_INITIALIZER;/*sem_t sem_barber;*/ /*SEMAFORO*/
+pthread_mutex_t chairs_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t client_ = PTHREAD_COND_INITIALIZER;
+pthread_cond_t barber_ = PTHREAD_COND_INITIALIZER;
 
 //for exit and join
 pthread_mutex_t finishMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -37,7 +33,7 @@ void thr_join_all(unsigned size) {
 }
 
 
-void *barber(void *param) {
+void *barber() {
   
    while(1) {
       /* wait for a client to become available (sem_client) */
@@ -58,8 +54,7 @@ void *barber(void *param) {
     } 
 }
 
-void *client(void *param) {
-
+void *client() {
 
    while(1) {
       /* wait for mutex to access chair count (chair_mutex) */
@@ -95,15 +90,12 @@ void *client(void *param) {
 int main() {
 
    pthread_t threadsall [MAX];
-	
-	printf("Main thread beginning\n");
-
-   int i;
 
    pthread_create(&threadsall[0], NULL, barber, NULL);
    printf("Creating barber thread with id %lu\n",threadsall[0]);
+
    /* 4. Create client threads.  */
-   for (i = 0; i < MAX; i++){
+   for (int i = 0; i < MAX; i++){
 	   pthread_create(&threadsall[i], NULL, client, NULL);
 	   printf("Creating client thread with id %lu\n",threadsall[i]);
    }
