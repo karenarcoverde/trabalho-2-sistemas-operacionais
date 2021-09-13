@@ -1,1 +1,0 @@
-# trabalho-2-sistemas-operacionais
