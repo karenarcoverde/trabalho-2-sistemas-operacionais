@@ -63,7 +63,7 @@ void *client(void *) {
    clientePos++;
    pthread_mutex_unlock(&clientArray_mutex);
    
-   //está sempre chegnado cliente, nunca para
+   //está sempre chegando cliente, nunca para
    while(1) {
      //espera pelo mutex para acessar a fila de cadeiras
 	  pthread_mutex_lock(&cadeiras_mutex);
