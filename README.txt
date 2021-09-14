@@ -16,5 +16,4 @@ make clean
 O problema implementado foi "5.3 The FIFO barbershop". 
 
 Caso queira ajustar os parâmetros, modifique nas macros contidas no código. 
-As informações são impressas na tela. Os clientes sentam nas cadeiras, o barbeiro atende o primeiro cliente a sentar, é mostrado na tela que determinado
-cliente cortou o cabelo. Quando as cadeiras já estão cheias, os clientes que chegam vão embora. 
+As informações são impressas na tela. Os clientes sentam nas cadeiras, o barbeiro atende o primeiro cliente a sentar, é mostrado na tela que determinado cliente cortou o cabelo. Quando as cadeiras já estão cheias, os clientes que chegam vão embora. 
