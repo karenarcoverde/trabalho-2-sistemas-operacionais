@@ -13,6 +13,7 @@ using namespace std;
 int clientePos = 0;
 list<int> cadeiras; //lista utilizada para organizar os clientes em ordem
 
+//estrutura para representar o cliente, cada cliente tem seu mutex e sua variável de condição
 typedef struct {
    pthread_mutex_t mutex;
    pthread_cond_t  cond;
@@ -40,7 +41,7 @@ void *barber( void *) {
       currentCliente = &clientes[cadeiras.front()];
       printf("Barber: atendendo cliente na posicao %i\n",cadeiras.front());
 	  
-      sleep(1);
+      sleep(1); //espera um pouco para poder visualizar melhor
       //sinaliza para o cliente que o barbeiro está pronto para cortar o cabelo
 	   pthread_cond_signal(&currentCliente->cond);
 
@@ -85,7 +86,7 @@ void *client(void *) {
          //cabelo cortado
 		   printf("Client: Thread  %lu(%i) cabelo cortado\n",pthread_self(),posCopy);
 	  }
-     sleep(1);
+     sleep(1); //espera um pouco para poder visualizar melhor
      printf("Client: Thread %lu(%i) esperando segundos antes de tentar o proximo corte de cabelo\n",pthread_self(),posCopy);
    }
      return NULL;
