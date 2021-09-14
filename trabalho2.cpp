@@ -111,7 +111,7 @@ int main() {
 
 //Referências:
 //1. Adaptado a partir do codigo fornecido pelo monitor https://github.com/tonyjmartinez/Sleeping-Barber/blob/ca168a12f539f24846a87950530bb7bed2206370/mybarber.c 
-//Utilizando locks, variavéis de estado e FIFO
+// Utilizando locks, variavéis de estado e FIFO
 //2. Baseado na aula variavéis de condição: https://www.youtube.com/watch?v=a-WlBjCAP9Y&list=PL6i520yqwpsT-Zjj6jf9PA8M2oPk80ypf&index=22&ab_channel=RodrigodeSouzaCouto
 //3. Fornecido pelo monitor: https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=locks
 //4. https://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_join.html
