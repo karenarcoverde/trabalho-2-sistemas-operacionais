@@ -1,5 +1,3 @@
-//gcc -Wall -pthread 
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -50,7 +48,7 @@ pthread_cond_t finishCond = PTHREAD_COND_INITIALIZER;
 
 void thr_join_all(unsigned size) {
     pthread_mutex_lock(&finishMutex);
-    while (finalizou != size)
+    while (((unsigned)finalizou) != size)
         pthread_cond_wait(&finishCond, &finishMutex);
     pthread_mutex_unlock(&finishMutex);
     printf("Todas as threads terminaram\n");
@@ -111,7 +109,7 @@ void *client(void *) {
            /* decrement number of chairs available */
          cadeiras.push_back(posCopy);
 
-		   printf("Client: Thread  %lu(%i) Sitting to wait. Number of chairs left = %d\n",pthread_self(),posCopy,cadeiras.size());
+		   printf("Client: Thread  %lu(%i) Sitting to wait. Number of chairs left = %ld\n",pthread_self(),posCopy,cadeiras.size());
          pthread_mutex_unlock(&cadeiras_mutex);
 
            /* signal that a customer is ready (sem_client) */

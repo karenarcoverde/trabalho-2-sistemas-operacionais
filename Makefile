@@ -1,18 +1,17 @@
-# the compiler
-CC = gcc
+CC = g++
 
-# compiler flags:
-#  -Wall turns on most, but not all, compiler warnings
-CFLAGS  = -Wall -Werror -D_POSIX_THREAD_SEMANTICS -g
-LDFLAGS = -pthread
+CFLAGS  = -Wall -std=c++11 -pthread
 
-# the build target executable:
 TARGET = trabalho2
+
 
 all: $(TARGET)
 
-$(TARGET): $(TARGET).c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c $(LDFLAGS)
-
+$(TARGET): $(TARGET).cpp
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp
+ 	
 clean:
 	$(RM) $(TARGET)
+
+# # Esse Makefile foi feito com modificacoes para o caso do c++ e o uso do pthread a partir do drive que contem o codigo fornecido pelo professor.
+# https://drive.google.com/file/d/1wWEsfPYXpFlcPJZywxCdjW_JX4oEA-aJ/view?usp=sharing 
