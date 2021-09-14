@@ -8,7 +8,7 @@ Para compilar o programa, digite no terminal:
 make
 
 Para executar o programa, digite no terminal:
-./trabalho1
+./trabalho2
 
 Para limpar os objetos e o executável, digite no terminal:
 make clean
