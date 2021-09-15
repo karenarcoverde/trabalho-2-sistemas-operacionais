@@ -102,7 +102,7 @@ int main() {
 	   pthread_create(&todasthreads[i], NULL, client, NULL);  
    }
 
-   //para finalizar as threads
+   //aguarda as threads
 	for (int i = 0; i < CLIENT_NUMBER+1; i++){
 			pthread_join(todasthreads[i],NULL);
 	}
